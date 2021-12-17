@@ -7,27 +7,26 @@
     <title>Rock Paper</title>
 </head>
 <body>
+<div class="main">
+
+<button dvalue="rock" class="pick">Rock</button>
+<button dvalue="paper" class="pick">Paper</button>
+<button dvalue="scissors" class="pick">Scissors</button>
+
+<div class="result">
+    <div id="divResultPl"> Player Result:
+        <span id="playerResult"> </span>
+    </div>
+    <div id="divResultComp"> Computer Result: 
+        <span id="computerResult"> </span>
+    </div>
+</div>
+
+</div>
+
+    
     <script src="script.js">     
     </script>
-    
 </body>
 </html>
 
-losowa liczba wg MDN:
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-
-
-----
-wg mnie:
-
-let random = function RandomNumber (){
-return math.floor(Math.random() * 3)
-
-zmiana zeby dodac komentarze.
-9.12.2021: nie ma petli, dorobic petle!
-}
-
-numer zamowienia: 20461

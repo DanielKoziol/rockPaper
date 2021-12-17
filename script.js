@@ -13,13 +13,21 @@ function computerSelection (){
     return gameOptions[RandomNumber()];
     }
 
+let playerResult = 0;
+let computerResult = 0;
     
-function playRound () {
-
-    let promptOption = prompt("rock paper scissors, man!", "rock");
-    let mySelect = promptOption.toLowerCase();
-    let computerSelect = computerSelection();
-    console.log("computer:" + computerSelect);
+function playRound (e) {
+    if (computerResult > 4 || playerResult > 4) {
+        return alert("we have a winner!"); // po zwyciezcy nie da sie grac dalej
+    }
+    let mySelect= this.getAttribute("dvalue"); // this albo event.target // 
+    // console.log("thisTextcont:" + this.textContent); 
+    console.log(this);
+    console.log(e);
+       // console.log("atrybuty:" + this.getAttribute("dvalue") + e.target.getAttribute("dvalue"));
+        
+       let computerSelect = computerSelection();
+        console.log("computer:" + computerSelect);
 
     if (mySelect==="rock" && computerSelect==="rock") {
     result = "Draw";
@@ -53,12 +61,29 @@ function playRound () {
     result = "I know you're cheating!";
 
 console.log(`${result} wins`);
-return result;
+
+if (result == "Computer") {
+    computerResult++;
+    console.log("compResult:" + computerResult);
 }
 
-let playerResult = 0;
-let computerResult = 0;
+else if (result == "Player") {
+    playerResult++;
+    console.log("playerResult:" + playerResult);
+}
 
+
+console.log("player:" + playerResult + "computer:" + computerResult);
+
+document.querySelector("#playerResult").textContent = `${playerResult}`; // 
+document.querySelector("#computerResult").textContent = `${computerResult}`;
+
+
+}
+
+
+
+/* 
 function game () {
 for (let index = 0; index < 6; index++) {
     let roundResult = playRound ();   
@@ -77,7 +102,20 @@ for (let index = 0; index < 6; index++) {
 }
 };
 
-game ();
+game ();  
+*/
 
 console.log("finalCompResult:" + computerResult);
 console.log("finalPlayerResult:" + playerResult);
+
+
+const btns = document.querySelectorAll("button");
+
+btns.forEach(btn => btn.addEventListener("click", playRound));
+
+
+
+
+/* document.body.addEventListener("click", event => {
+    if (event.target.nodeName == "BUTTON") {
+      console.log("Clicked", event.target.textContent */
